@@ -17,7 +17,7 @@ class Habit(models.Model):
     related_habit = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='связанная привычка', **NULLABLE)
     periodicity = models.PositiveSmallIntegerField(verbose_name='переодичность', default=1)
     award = models.CharField(max_length=150, verbose_name='вознаграждение', **NULLABLE)
-    duration = models.DurationField(verbose_name='продолжительность', default=timedelta(minutes=2))
+    duration = models.DurationField(verbose_name='продолжительность', default=timedelta(seconds=120))
     is_published = models.BooleanField(default=True, verbose_name='признак публичности')
 
     def __str__(self):
