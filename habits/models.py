@@ -11,7 +11,7 @@ class Habit(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='создатель привычки',
                               **NULLABLE)
     place = models.CharField(max_length=150, verbose_name='место выполнения привычки')
-    time = models.TimeField(verbose_name='время выполнения привычки')
+    time = models.DateTimeField(verbose_name='время выполнения привычки')
     action = models.TextField(verbose_name='действие, которое представляет собой привычка')
     pleasant_habit_sign = models.BooleanField(verbose_name='признак приятной привычки', default=False)
     related_habit = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='связанная привычка', **NULLABLE)
